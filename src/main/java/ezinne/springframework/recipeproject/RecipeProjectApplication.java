@@ -2,8 +2,14 @@ package ezinne.springframework.recipeproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.annotation.Bean;
+
+import javax.servlet.annotation.WebServlet;
 
 @SpringBootApplication
+@EntityScan("ezinne.springframework.domain")
 public class RecipeProjectApplication {
 
 	public static void main(String[] args) {
