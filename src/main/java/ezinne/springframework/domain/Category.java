@@ -1,8 +1,14 @@
 package ezinne.springframework.domain;
 
+import lombok.*;
+import org.hibernate.Hibernate;
+
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Category {
     @Id
@@ -12,29 +18,7 @@ public class Category {
     private String description;
 
     @ManyToMany(mappedBy = "categories")
+    @ToString.Exclude
     private Set<Recipe> recipe;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Recipe> getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Set<Recipe> recipe) {
-        this.recipe = recipe;
-    }
 }
