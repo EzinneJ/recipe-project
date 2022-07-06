@@ -1,5 +1,6 @@
 package ezinne.springframework.services;
 
+import ezinne.springframework.commands.RecipeCommand;
 import ezinne.springframework.domain.Recipe;
 import org.springframework.stereotype.Service;
 
@@ -10,4 +11,5 @@ public interface RecipeService {
     Set<Recipe> getRecipes();
 
     Recipe findById(Long l);
+    RecipeCommand saveRecipeCommand(RecipeCommand command);
 }

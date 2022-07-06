@@ -1,5 +1,7 @@
 package ezinne.springframework.services;
 
+import ezinne.springframework.converters.RecipeCommandToRecipe;
+import ezinne.springframework.converters.RecipeToRecipeCommand;
 import ezinne.springframework.domain.Recipe;
 import ezinne.springframework.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,12 +23,17 @@ public class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
 
     @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
